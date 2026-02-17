@@ -1,0 +1,16 @@
+let imgBox = document.getElementById("imgbox");
+let qrImage = document.getElementById("qrImage");
+let qrtext = document.getElementById("qrtext");
+
+function generateQr() {
+    if (qrtext.value.length > 0) {
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrtext.value;
+        imgBox.classList.add("show-img");
+        qrtext.value="";
+    } else {
+        qrtext.classList.add("error");
+        setTimeout(() => {
+            qrtext.classList.remove("error");
+        }, 1000);
+    }
+}
